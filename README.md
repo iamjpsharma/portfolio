@@ -110,7 +110,7 @@ export const personalData = {
   linkedIn: 'https://www.linkedin.com/in/iamjpsharma',
   twitter: 'https://twitter.com/iamjpsharma',
   stackOverflow: 'https://stackoverflow.com/users/9981862/iamjpsharma',
-  devUsername: "iamjpsharma"
+  devUsername: "iamjpsharma",
   resume: "...",
 };
 ```

@@ -4,18 +4,42 @@ import { personalData } from "@/utils/data/personal-data";
 import BlogCard from "../components/homepage/blog/blog-card";
 
 async function getBlogs() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
+  const url = `https://dev.to/api/articles/me`; // Endpoint to fetch articles for the authenticated user
+  console.log("url-- ", url);
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
+  try {
+      const res = await fetch(url, {
+          method: 'GET',
+          headers: {
+              'Accept': 'application/vnd.forem.api-v1+json',
+              'api-key': process.env.DEV_TO_API_KEY // Make sure this environment variable is set
+          }
+      });
+
+      console.log("res-- ", res.body);
+      
+      // Check if the response is OK (status in the range 200-299)
+      if (!res.ok) {
+          throw new Error('Failed to fetch data');
+      }
+
+      const textData = await res.text(); // Read the response as text
+      console.log("Raw Response Data: ", textData); // Log the raw response
+      
+      const data = JSON.parse(textData); // Parse it manually
+      console.log("Fetched Data: ", data); // Log the parsed data
+      
+      return data; // Return the fetched data
+
+  } catch (error) {
+      console.error("Error fetching data: ", error); // Log any errors that occur
+      throw error; // Re-throw the error for further handling if needed
   }
-
-  const data = await res.json();
-  return data;
-};
+}
 
 async function page() {
   const blogs = await getBlogs();
+console.log( "blogs-- ", blogs);
 
   return (
     <div className="py-8">
