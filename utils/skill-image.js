@@ -72,6 +72,10 @@ import vuetifyjs from '/public/svg/skills/vuetifyjs.svg';
 import webix from '/public/svg/skills/webix.svg';
 import wolframalpha from '/public/svg/skills/wolframalpha.svg';
 import wordpress from '/public/svg/skills/wordpress.svg';
+import xcode from '/public/svg/skills/xcode.svg';
+import apple from '/public/svg/skills/apple.svg';
+import android from '/public/svg/skills/android.svg';
+import reactnative from '/public/svg/skills/reactnative.svg';
 
 
 export const skillsImage = (skill) => {
@@ -225,6 +229,16 @@ export const skillsImage = (skill) => {
       return wolframalpha;
     case 'canva':
       return canva;
+    case 'xcode':
+      return xcode;
+    case 'apple':
+      return apple;
+      case 'ios':
+        return apple;
+    case 'android':
+      return android;
+    case 'react native':
+      return reactnative;
     default:
       break;
   }
