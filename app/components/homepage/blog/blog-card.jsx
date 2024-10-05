@@ -14,7 +14,7 @@ function BlogCard({ blog }) {
     >
       <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
         <Image
-          src={blog?.cover_image}
+          src={blog?.cover_image || 'https://media.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxr7o53skusaje06lx182.png'}
           height={1080}
           width={1920}
           alt=""
